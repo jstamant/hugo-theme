@@ -1,0 +1,21 @@
+{{- if .Param "authorbox" }}
+{{- if (eq .Section "posts") }}
+<div id="authorbox">
+  {{- with .Site.Author.image }}
+  <figure class="authorbox-image">
+    <img class="" alt="{{ $.Site.Author.name }} image" src="{{ $.Site.Author.image | relURL }}" height="90px" width="90px">
+  </figure>
+  {{- end }}
+  {{- with .Site.Author.name }}
+  <div class="authorbox-header">
+    <h3>{{ . }}</h3>
+  </div>
+  {{- end }}
+  {{- with .Site.Author.bio }}
+  <div class="authorbox-description">
+    {{ . | markdownify }}
+  </div>
+  {{- end }}
+</div>
+{{- end }}
+{{- end }}
