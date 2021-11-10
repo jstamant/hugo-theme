@@ -1,19 +1,21 @@
 {{- if .Param "authorbox" }}
 {{- if (eq .Section "posts") }}
-<div id="authorbox">
+<div id="authorbox" class="pure-g section">
   {{- with .Site.Author.image }}
-  <figure class="authorbox-image">
-    <img class="" alt="{{ $.Site.Author.name }} image" src="{{ $.Site.Author.image | relURL }}" height="90px" width="90px">
-  </figure>
-  {{- end }}
-  {{- with .Site.Author.name }}
-  <div class="authorbox-header">
-    <h3>{{ . }}</h3>
+  <div class="pure-u-1 pure-u-sm-1-4 pure-u-lg-1-6 authorbox-image-wrapper">
+    <img class="authorbox-image" alt="Image of {{ $.Site.Author.name }}" src="{{ $.Site.Author.image | relURL }}" height="90px" width="90px">
   </div>
   {{- end }}
-  {{- with .Site.Author.bio }}
-  <div class="authorbox-description">
-    {{ . | markdownify }}
+  {{- with .Site.Author.name }}
+  <div class="pure-u-1 pure-u-sm-3-4 pure-u-lg-5-6 section">
+    <div class="authorbox-header">
+      <header><h3>{{ . }}</h3></header>
+    </div>
+    {{- end }}
+    {{- with .Site.Author.bio }}
+    <div class="authorbox-description">
+      <p>{{ . | markdownify }}</p>
+    </div>
   </div>
   {{- end }}
 </div>

@@ -1,0 +1,12 @@
+{{- if .Param "comments" }}
+{{- if (eq .Section "posts") }}
+<div id="comments">
+  <h2>Comments</h2>
+  <p><a href="mailto:justin@tabletop.engineering?subject={{ .Title }}">Send me an email.</a>
+  I don't currently have comments configured for this website, but I
+    would love your feedback!</p>
+  <p>Alternatively, check out the <a href="/contact">contact page</a> for more info.</p>
+  
+</div>
+{{- end }}
+{{- end }}

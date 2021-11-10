@@ -1,21 +1,23 @@
 {{ define "main" }}
 <article class="post">
-  <header class="post__header">
-    <h1 class="post__title">{{ .Title }}</h1>
+  <header class="post-header">
+    <h1>{{ .Title }}</h1>
     {{- with .Params.lead }}
-    <p class="post__lead">{{ . }}</p>
+    <p>{{ . }}</p>
     {{- end }}
+    {{ if .Params.date }}<p>Published on {{ .Date | dateFormat ":date_long"}} by <a href="/contact">{{ .Site.Author.name }}</a></p>{{ end }}
+    {{ if .Params.updated }}<p>Updated on {{ .Params.updated | dateFormat ":date_long"}}</p>{{ end }}
   </header>
   {{- if .Params.thumbnail }}
-  <figure class="post__thumbnail">
+  <figure>
     <img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}">
   </figure>
   {{- end }}
-  {{- partial "post_toc.html" . -}}
-  <div>
+  {{- partial "post_toc.html" . -}}{{/* Not used unless post has toc parameter */}}
+  <div class="post body">
     {{ .Content }}
   </div>
-  {{- if .Params.tags }}
+  {{- if .Params.tags }}{{/* Not used unless post has tags */}}
   <footer class="post__footer">
     {{ partial "post_tags.html" . }}
   </footer>
@@ -24,4 +26,5 @@
 {{ partial "advisory" . }}
 {{ partial "authorbox" . }}
 {{ partial "pager" . }}
+{{ partial "comments" . }}
 {{ end }}

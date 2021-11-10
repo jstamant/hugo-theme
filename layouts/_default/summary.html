@@ -1,4 +1,4 @@
-<article>
+<article class="card">
   {{- if .Params.thumbnail }}
   <figure>
 	<a href="{{ .Permalink }}">
@@ -6,24 +6,22 @@
 	</a>
   </figure>
   {{- end }}
-  <div>
-    <header class="post-header">
-      <h2 class="post-title">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </h2>
-      <p class="post-date">Published {{ .Date.Format "January 2, 2006" }}</p>
-    </header>
-    <div class="post-body">
-      <p class="excerpt">
-        {{ .Summary }}
-      </p>
-      {{- if .Site.Params.readmore }}
-      {{- if .Truncated }}
-      <p class="readmore">
-        <a href="{{ .RelPermalink }}">Read more...</a>
-      </p>
-      {{- end }}
-      {{- end }}
-    </div>
+  <header class="card-header">
+    <h2 class="post-title">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h2>
+    <p class="post-date">Published {{ .Date | dateFormat ":date_long" }}</p>
+  </header>
+  <div class="post-body">
+    <p class="excerpt">
+      {{ .Summary }}
+    </p>
+    {{- if .Site.Params.readmore }}
+    {{- if or .Truncated .Summary }}
+    <p>
+      <a href="{{ .RelPermalink }}">Read more...</a>
+    </p>
+    {{- end }}
+    {{- end }}
   </div>
 </article>

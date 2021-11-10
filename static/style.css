@@ -4,17 +4,49 @@
    file:    style.css
    author:  Justin R. St-Amant
    date:    2021-08-19
- *************************************************/
+*************************************************/
 /* base color on mycolor.space is #3D4F5D */
 
-/** {
-   font-family: Tahoma, Geneva, sans-serif;
-   }*/
+/* tentative organisation of CSS in planning:
+Site defaults and global settings.
+IDs, and explain where they're used
+- banner
+- header
+- body
+- nav
+- footer
+- authorbox
+- advisory
+- content
+- sidebar
+Markdown-specific CSS for articles
+Utility classes like .section
+*/
 
-/* NEW CSS */
-p {
-  font-size: 1em;
+/********************************************/
+/* DEFAULTS AND CROSS-BROWSER COMPATIBILITY */
+/*******************************************/
+/* background-color for the body element is matching with the footer */
+/* See the #body ID for the background-color of the main content area*/
+body {
+  color: #3d4f5d;
+  background-color: #3d4f5d;
+  font-family: Arial, sans-serif;
+  font-size: 100%; /* Set default font-size for the whole page, all em sizes are constrained by this */
+  line-height: 1.15; /* Set default line-height for everything */
 }
+p {
+  font-size: 1em; /* Standardize all em sizes to the size of paragraph text */
+  margin: 1em 0; /* Overwrite user-agent stylesheet with this default */
+}
+article {
+  display: block; /* Overwrite user-agent stylesheet to ensure this default across browsers */
+}
+blockquote {
+  font-style: italic;
+}
+
+
 
 #banner, #nav {
   margin: auto;
@@ -54,22 +86,35 @@ a:hover {
   color: #009ff6;
 }
 
+#body {
+  background-color: #fff;
+}
 #body h2 {
   margin: 0.5em 0;
 }
-
-/*#body p {
-  margin: 0em 0 0 0;
-}*/
 
 #footer ul {
   padding: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
+/* .card is used in list pages. Every post is a <arcticle class="card">*/
+.card {
+  margin: 0 0 1em 0;
+}
+
+/* .page is used for list pages or other pages */
+.page-header {
+  margin: 0 0 1em 0;
+}
+.page-header * {
+  margin: 0;
+}
+
+/* .post is used for an actual post page */
 .post-title a {
   text-decoration: none;
 }
@@ -82,7 +127,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .post-title, .post-date {
   display: inline-block;
-  vertical-align: middle;
+}
+.post.body {
+  /*line-height: 1.5;*/
 }
 .readmore {
   margin: 0.5em 0 1em 0;
@@ -91,12 +138,12 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-/*@media (min-width: 48em) {
-   margin-right: 25%;
-   }*/
+.post-header * {
+  margin: 0;
+}
 
 #content, #sidebar {
-  padding: 2rem;
+  padding: 2em;
 }
 
 code {
@@ -113,45 +160,43 @@ pre {
   text-align: left;
 }
 
-#authorbox figure {
-  display: inline;
+#authorbox h3, #authorbox p {
+  margin: 0;
+}
+
+.authorbox-image-wrapper {
+  position: initial;
+}
+.authorbox-image {
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+@media screen and (min-width: 35.5em) {
+  .authorbox-image-wrapper {
+    position: relative;
+  }
+  .authorbox-image {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
 }
 
 #advisory {
   background-color: #e9fcff;
-  padding: 0.5em 1em;
+  padding: 1em;
   border: 1px solid #8ab0cd;
+  margin: 0 0 1em 0;
 }
 #advisory p {
-  margin: 0.5em 0;
+  margin: 0;
 }
-
-/* END OF NEW CSS */
-
-body {
-  color: #3d4f5d;
-  background-color: #fff;
-  font-size: 100%;
-  /*margin: 0.5%;*/
-}
-
-/*#banner {
-  padding: 1%;
-}*/
 
 #banner a {
   text-decoration: none;
-}
-
-/*#nav {
-  /*border-bottom: 2px solid black; NO LONGER USED */
-  /*padding-bottom: 0.4%;*/
-}*/
-
-#nav a {
-  font-family: 'Orbitron', sans-serif;
-  border-radius: 10px;
-  padding: 0.2%;
 }
 
 #nav ul {
@@ -160,54 +205,15 @@ body {
   padding: 0;
 }
 
-#nav li {
-  /*display: inline;*/
-  padding: 0 1%;
-}
-
-/*#body {
-  display: table;
-  width: 100%;
-}*/
-
-/*
-#sidebar-wrapper {
-  display: table-cell;
-  vertical-align: top;
-  width: 15%;
-}
-
-#sidebar {
-  padding: 5%;
-}
-
-#sidebar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#content-wrapper {
-  display: table-cell;
-  width: 85%;
-}
-*/
-
-/*.post * {
-  margin: 0;
-}*/
-
-#footer-wrapper {
-  border-top: 2px solid black;
-}
-
 #footer {
-  padding: 1%;
+  padding: 1em 0;
 }
 
-/*************************************************
-DEBUG
-*************************************************/
-.red {
-  background-color: red;
+/*******************/
+/* UTILITY CLASSES */
+/*******************/
+/* generic class to add top and bottom margins to content sections */
+.section {
+  margin: 1em 0;
 }
+
