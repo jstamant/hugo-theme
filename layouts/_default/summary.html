@@ -7,13 +7,13 @@
   </figure>
   {{- end }}
   <header class="card-header">
-    <h2 class="post-title">
+    <h2 class="card-title">
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     </h2>
-    <p class="post-date">Published {{ .Date | dateFormat ":date_long" }}</p>
+    <p class="card-date">Published {{ .Date | dateFormat ":date_long" }}</p>
   </header>
-  <div class="post-body">
-    <p class="excerpt">
+  <div class="card-body">
+    <p class="card-excerpt">
       {{ .Summary }}
     </p>
     {{- if .Site.Params.readmore }}

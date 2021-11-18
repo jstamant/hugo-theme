@@ -30,7 +30,8 @@ Utility classes like .section
 /* See the #body ID for the background-color of the main content area*/
 body {
   color: #3d4f5d;
-  background-color: #3d4f5d;
+  /*background-color: #3d4f5d;*/
+  background-color: #fff;
   font-family: Arial, sans-serif;
   font-size: 100%; /* Set default font-size for the whole page, all em sizes are constrained by this */
   line-height: 1.15; /* Set default line-height for everything */
@@ -88,10 +89,12 @@ a:hover {
 
 #body {
   background-color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-#body h2 {
+/*#body h2 {
   margin: 0.5em 0;
-}
+}*/
 
 #footer ul {
   padding: 0;
@@ -100,10 +103,32 @@ a:hover {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', Arial, sans-serif;
 }
+h2 {
+   margin: 0.5em 0;
+}
 
 /* .card is used in list pages. Every post is a <arcticle class="card">*/
 .card {
   margin: 0 0 1em 0;
+}
+.card * {
+  margin: 0;
+}
+.card-title a {
+  text-decoration: none;
+}
+.card-title a:hover {
+  color: #009ff6;
+}
+.card-date {
+  font-size: 0.875em;
+  margin: 0;
+}
+.card-header {
+  margin: 0 0 0.875em 0;
+}
+.card-excerpt {
+  margin: 0 0 0.875em 0;
 }
 
 /* .page is used for list pages or other pages */
@@ -115,27 +140,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* .post is used for an actual post page */
-.post-title a {
-  text-decoration: none;
-}
-.post-title a:hover {
-  color: #009ff6;
-}
-.post-date {
-  font-size: 0.875em;
-  margin-left: 1em;
-}
-.post-title, .post-date {
-  display: inline-block;
-}
 .post.body {
   /*line-height: 1.5;*/
 }
 .readmore {
   margin: 0.5em 0 1em 0;
-}
-.excerpt {
-  margin: 0;
 }
 
 .post-header * {
