@@ -36,6 +36,9 @@ body {
   font-size: 100%; /* Set default font-size for the whole page, all em sizes are constrained by this */
   line-height: 1.15; /* Set default line-height for everything */
 }
+html {
+    background-color: #3d4f5d; /* html background matches the footer, for when a page is small */
+}
 p {
   font-size: 1em; /* Standardize all em sizes to the size of paragraph text */
   margin: 1em 0; /* Overwrite user-agent stylesheet with this default */
