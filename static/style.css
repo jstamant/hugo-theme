@@ -147,6 +147,36 @@ h2 {
 .post.body {
   /*line-height: 1.5;*/
 }
+.post.body figure {
+    width: 100%;
+    margin: 1em 0;
+}
+.post.body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+/*@media screen and (min-width: 35.5em) {
+    .post.body figure {
+        width: 30%;
+        margin: 0 1em 0.5em 0;
+        float: left;
+    }
+}
+@media screen and (min-width: 35.5em) {
+    .post.body img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+}*/
+@media screen and (min-width: 35.5em) {
+    .post.image.avatar {
+        max-width: 100px;
+        margin: 0 1em 0.5em 0;
+        float: left;
+    }
+}
 .readmore {
   margin: 0.5em 0 1em 0;
 }
