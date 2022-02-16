@@ -158,6 +158,11 @@ h2 {
 #content, #sidebar {
   padding: 2em;
 }
+/* Remove padding between content and sidebar on small screens */
+@media screen and (max-width: 48em) {
+    #content { padding: 2em 2em 0   2em; }
+    #sidebar { padding: 0   2em 2em 2em; }
+}
 
 code {
   background-color: #e9fcff;
