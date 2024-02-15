@@ -1,5 +1,11 @@
 # hugo-theme
 
+> [!NOTE]
+> (February 2024) This project is no longer being used! I was using
+> this hugo theme for two websites, but now I don't use it at all. I
+> moved my Tabletop Engineering site over to Next.js for a handful of
+> reasons.
+
 This is the custom [Hugo](https://github.com/gohugoio/hugo) theme that I've
 built for [Tabletop Engineering](https://tabletop.engineering/).
 
